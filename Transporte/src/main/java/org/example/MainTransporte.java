@@ -5,18 +5,18 @@ import java.util.Scanner;
 
 public class MainTransporte {
 
-    static ArrayList<Propietario> propietarios = new ArrayList<>();
-    static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+     ArrayList<Propietario> propietarios ;
+     ArrayList<Vehiculo> vehiculos;
 
     //preguntar porq en todos los metodos me pidio que los colocara estaticos
     //y porque no me dejo hacerlo asi
-    /*public MainTransporte(){
+    public MainTransporte(){
          propietarios = new ArrayList<>();
          vehiculos = new ArrayList<>();
 
-    }*/
+    }
 
-    public static void mostrarDatosDePrueba() {
+    public  void mostrarDatosDePrueba() {
 
         String modeloCarro = "kia";
         int cantidadPersonas = 25;
@@ -27,7 +27,7 @@ public class MainTransporte {
 
     }
 
-    public static void crearPropietario(){
+    public  void crearPropietario(){
         
         Scanner scanner = new Scanner(System.in);
 
@@ -52,7 +52,7 @@ public class MainTransporte {
 
     }
 
-    public static void crearVehiculo(){
+    public  void crearVehiculo(){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -81,7 +81,8 @@ public class MainTransporte {
         System.out.println("\n" + vehiculo);
     }
 
-    public static void buscarNumeroPlacaCarro() throws Exception{
+    public  void buscarNumeroPlacaCarro() throws Exception{
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el numero de placa que desea buscar: ");
@@ -97,41 +98,19 @@ public class MainTransporte {
                     carroEncontrado = true;
                     break;
                 }
+
                 if (carroEncontrado) {
+
                     break;
+
                 }
             }
         }
+
         if (!carroEncontrado) {
+
             throw new Exception("Este carro no existe");
+
         }
     }
-
-
-
-    public static void main(String[] args) throws Exception {
-
-        System.out.println("----------------");
-        System.out.println("----------------");
-        mostrarDatosDePrueba();
-
-        System.out.println("----------------");
-        System.out.println("----------------");
-        System.out.println("aki se muestra los datos del propietario");
-        crearPropietario();
-
-        System.out.println("----------------");
-        System.out.println("----------------");
-        System.out.println("aki se muestra los datos del vehiculo");
-        crearVehiculo();
-
-
-        System.out.println("----------------");
-        System.out.println("----------------");
-        System.out.println("aki se muestra el propietario del carro ");
-        buscarNumeroPlacaCarro();
-
-
-    }
-
 }
