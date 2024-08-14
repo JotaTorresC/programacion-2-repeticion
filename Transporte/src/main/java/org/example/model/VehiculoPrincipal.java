@@ -1,21 +1,30 @@
-package org.example;
+package org.example.model;
 
-public class Vehiculo {
+import java.util.ArrayList;
+
+public class VehiculoPrincipal {
     String tamanoVehiculo;
     String placa;
     String modelo;
     String marca;
     String color;
-    String tipo;
-    int cantidadPasajeros;
+    String numeroChasis;
+    ArrayList<Propietario> asociados;
 
-    public Vehiculo(String tamanoVehiculo, String placa, String modelo, String marca, String color, String tipo) {
+    public VehiculoPrincipal() {
+
+    }
+
+    public VehiculoPrincipal(String tamanoVehiculo, String placa, String modelo, String marca,
+                             String color, String numeroChasis) {
+
+        this.numeroChasis = numeroChasis;
         this.tamanoVehiculo = tamanoVehiculo;
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
         this.color = color;
-        this.tipo = tipo;
+
     }
 
     public String getTamanoVehiculo() {
@@ -58,26 +67,30 @@ public class Vehiculo {
         this.color = color;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getNumeroChasis() {
+        return numeroChasis;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setNumeroChasis(String numeroChasis) {
+        this.numeroChasis = numeroChasis;
     }
 
-    public int getCantidadPasajeros() {return cantidadPasajeros;}
+    public ArrayList<Propietario> getAsociados() {
+        return asociados;
+    }
 
-    public void setCantidadPasajeros(int cantidadPasajeros) {this.cantidadPasajeros = cantidadPasajeros;}
+    public void setAsociados(ArrayList<Propietario> asociados) {
+        this.asociados = asociados;
+    }
 
     @Override
     public String toString() {
         return "haz ingresado estos datos:" +
-                "\ntamaño = " + tamanoVehiculo + ", " +
-                "\nplaca = " + placa + ", " +
-                "\nmodelo = " + modelo + ", " +
-                "\nmarca = " + marca + ", " +
-                "\ncolor = " + color + ", " +
-                "\ntipo = " + tipo ;
+                "\ntamaño = " + tamanoVehiculo +
+                "\nplaca = " + placa +
+                "\nmodelo = " + modelo +
+                "\nmarca = " + marca +
+                "\ncolor = " + color +
+                "\ntipo = " + numeroChasis ;
     }
 }

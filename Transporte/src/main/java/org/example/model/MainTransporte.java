@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,24 +6,49 @@ import java.util.Scanner;
 public class MainTransporte {
 
      ArrayList<Propietario> propietarios ;
-     ArrayList<Vehiculo> vehiculos;
+     ArrayList<VehiculoPrincipal> vehiculos;
+     ArrayList<VehiculoTransporte> vehiculoTransportes;
 
-    //preguntar porq en todos los metodos me pidio que los colocara estaticos
-    //y porque no me dejo hacerlo asi
+     ArrayList<Usuario> usuarios;
+
     public MainTransporte(){
+
          propietarios = new ArrayList<>();
          vehiculos = new ArrayList<>();
+         vehiculoTransportes = new ArrayList<>();
+         usuarios = new ArrayList<>();
 
     }
 
-    public  void mostrarDatosDePrueba() {
+    public void inicializarDatosDePrueba() {
 
-        String modeloCarro = "kia";
-        int cantidadPersonas = 25;
-        String tipoCarro = "El tipo de carro es de pasajeros";
+        VehiculoPrincipal vehiculoPrincipal1 = new VehiculoPrincipal();
+        vehiculoPrincipal1.setPlaca("tsy47f");
 
-        System.out.println("estos son los datos de prueba" + "\n" + "Modelo: " + modeloCarro + "\n" + "Cantidad de personas: " +
-                cantidadPersonas + "\n" + tipoCarro);
+        Propietario propietario1 = new Propietario();
+        propietario1.setNombre("jason");
+
+        System.out.println("El nombre del propietario es " + propietario1.getNombre() +
+                " y la placa de su carro es " + vehiculoPrincipal1.getPlaca());
+
+        VehiculoTransporte vehiculoTransporte1 = new VehiculoTransporte();
+        vehiculoTransporte1.setPlaca("jpt79g");
+        vehiculoTransporte1.setMaximoPasajero(5);
+
+        VehiculoTransporte vehiculoTransporte2 = new VehiculoTransporte();
+        vehiculoTransporte2.setPlaca("bjk28k");
+        vehiculoTransporte2.setMaximoPasajero(3);
+
+        VehiculoTransporte vehiculoTransporte3 = new VehiculoTransporte();
+        vehiculoTransporte3.setPlaca("ijh56g");
+        vehiculoTransporte3.setMaximoPasajero(4);
+
+        propietarios.add(propietario1);
+        vehiculos.add(vehiculoPrincipal1);
+        vehiculoTransportes.add(vehiculoTransporte1);
+        vehiculoTransportes.add(vehiculoTransporte2);
+        vehiculoTransportes.add(vehiculoTransporte3);
+
 
     }
 
@@ -42,9 +67,12 @@ public class MainTransporte {
 
         System.out.print("Ingrese el telefono del propietario: ");
         String telefono = scanner.nextLine();
+
+        System.out.print("Ingrese la edad del propietario: ");
+        String edad = scanner.nextLine();
         
         // Crear el objeto Propietario
-        Propietario propietario = new Propietario(nombre, identificacion, correo, telefono);
+        Propietario propietario = new Propietario(nombre, identificacion, correo, telefono, edad);
 
         propietarios.add(propietario);
 
@@ -74,14 +102,14 @@ public class MainTransporte {
         System.out.print("Ingrese el tipo del vehiculo: ");
         String tipo = scanner.nextLine();
 
-        Vehiculo vehiculo = new Vehiculo(tamanoVehiculo, placa, modelo, marca, color, tipo);
+        VehiculoPrincipal vehiculo = new VehiculoPrincipal(tamanoVehiculo, placa, modelo, marca, color, tipo);
 
         vehiculos.add(vehiculo);
 
         System.out.println("\n" + vehiculo);
     }
 
-    public int calcularTotalPasajeros() {
+    /*public int calcularTotalPasajeros() {
         Scanner scanner = new Scanner(System.in);
 
         // Solicitar la cantidad de pasajeros y agregarla al vehículo.
@@ -97,7 +125,7 @@ public class MainTransporte {
         }
 
         return totalPasajeros;
-    }
+    }*/
 
 
     public  void buscarNumeroPlacaCarro() throws Exception{
@@ -110,7 +138,7 @@ public class MainTransporte {
         boolean carroEncontrado = false;
 
         for (Propietario propietario : propietarios) {
-            for (Vehiculo vehiculo : vehiculos){
+            for (VehiculoPrincipal vehiculo : vehiculos){
                 if (vehiculo.getPlaca().equals(numeroPlaca)){
 
                     System.out.print("el dueño del carro es " + propietario.getNombre());
@@ -132,4 +160,35 @@ public class MainTransporte {
 
         }
     }
+
+    public  void buscarCantidadPasajeroVehiculoTransporte() throws Exception{
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el numero de placa que desea buscar: ");
+        String numeroPlaca = scanner.nextLine();
+
+        boolean carroEncontrado = false;
+
+
+        for (VehiculoTransporte vehiculoTransporte : vehiculoTransportes){
+            if (vehiculoTransporte.getPlaca().equals(numeroPlaca)){
+                System.out.print("la cantidad de pasajeros en el dia fue " + vehiculoTransporte.getMaximoPasajero());
+                carroEncontrado = true;
+                break;
+            }
+
+            if (carroEncontrado) {
+
+                break;
+            }
+        }
+
+        if (!carroEncontrado) {
+
+            throw new Exception("Este carro no existe");
+
+        }
+    }
+
 }

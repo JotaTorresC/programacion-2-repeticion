@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class Main{
 
@@ -8,7 +8,9 @@ public class Main{
 
         System.out.println("----------------");
         System.out.println("----------------");
-        transporte.mostrarDatosDePrueba();
+        transporte.inicializarDatosDePrueba();
+
+        transporte.buscarCantidadPasajeroVehiculoTransporte();
 
         System.out.println("----------------");
         System.out.println("----------------");
@@ -20,18 +22,10 @@ public class Main{
         System.out.println("aki se muestra los datos del vehiculo");
         transporte.crearVehiculo();
 
-
         System.out.println("----------------");
         System.out.println("----------------");
         System.out.println("aki se muestra el propietario del carro ");
         transporte.buscarNumeroPlacaCarro();
 
-
-        System.out.println("---------------");
-        System.out.println("---------------");
-        System.out.println("El total de pasajeros transportados en un día es: " + transporte.calcularTotalPasajeros());
-
     }
-
-
 }

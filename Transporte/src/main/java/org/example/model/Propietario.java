@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import java.util.ArrayList;
 
@@ -7,13 +7,19 @@ public class Propietario {
     String identificacion;
     String correo;
     String telefono;
-    ArrayList <Vehiculo> vehiculo;
+    String edad;
+    ArrayList <VehiculoPrincipal> vehiculo;
 
-    public Propietario(String nombre, String identificacion, String correo, String telefono) {
+    public Propietario() {
+
+    }
+
+    public Propietario(String nombre, String identificacion, String correo, String telefono, String edad) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.correo = correo;
         this.telefono = telefono;
+        this.edad = edad;
     }
 
     public String getNombre() {
@@ -48,8 +54,20 @@ public class Propietario {
         this.telefono = telefono;
     }
 
-    public void setVehiculo(ArrayList<Vehiculo> vehiculo) {
+    public void setVehiculo(ArrayList<VehiculoPrincipal> vehiculo) {
         this.vehiculo = vehiculo;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public ArrayList<VehiculoPrincipal> getVehiculo() {
+        return vehiculo;
     }
 
     @Override
@@ -58,6 +76,8 @@ public class Propietario {
                 "\nnombre = " + nombre +
                 "\nidentificacion = " + identificacion +
                 "\ncorreo = " + correo +
-                "\ntelefono = " + telefono ;
+                "\ntelefono = " + telefono +
+                "\nedad = " + edad;
+
     }
 }
