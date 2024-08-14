@@ -27,6 +27,10 @@ public class Main{
         transporte.buscarNumeroPlacaCarro();
 
 
+        System.out.println("---------------");
+        System.out.println("---------------");
+        System.out.println("El total de pasajeros transportados en un día es: " + transporte.calcularTotalPasajeros());
+
     }
 
 

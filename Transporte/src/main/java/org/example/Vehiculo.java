@@ -7,6 +7,7 @@ public class Vehiculo {
     String marca;
     String color;
     String tipo;
+    int cantidadPasajeros;
 
     public Vehiculo(String tamanoVehiculo, String placa, String modelo, String marca, String color, String tipo) {
         this.tamanoVehiculo = tamanoVehiculo;
@@ -65,16 +66,18 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
+    public int getCantidadPasajeros() {return cantidadPasajeros;}
+
+    public void setCantidadPasajeros(int cantidadPasajeros) {this.cantidadPasajeros = cantidadPasajeros;}
+
     @Override
     public String toString() {
         return "haz ingresado estos datos:" +
-                "\nnombre = " + tamanoVehiculo + ", " +
-                "\nidentificacion = " + placa + ", " +
-                "\ncorreo = " + modelo + ", " +
-                "\ntelefono = " + marca + ", " +
-                "\ntelefono = " + color + ", " +
-                "\ntelefono = " + tipo ;
+                "\ntamaño = " + tamanoVehiculo + ", " +
+                "\nplaca = " + placa + ", " +
+                "\nmodelo = " + modelo + ", " +
+                "\nmarca = " + marca + ", " +
+                "\ncolor = " + color + ", " +
+                "\ntipo = " + tipo ;
     }
-
-
 }

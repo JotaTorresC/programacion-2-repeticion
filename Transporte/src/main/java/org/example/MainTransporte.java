@@ -81,6 +81,25 @@ public class MainTransporte {
         System.out.println("\n" + vehiculo);
     }
 
+    public int calcularTotalPasajeros() {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar la cantidad de pasajeros y agregarla al vehículo.
+        System.out.print("Ingrese la cantidad de pasajeros del viaje: ");
+        int cantidadPasajeros = scanner.nextInt();
+
+        Vehiculo vehiculoActual = vehiculos.get(vehiculos.size() - 1);
+        vehiculoActual.setCantidadPasajeros(cantidadPasajeros);
+
+        int totalPasajeros = 0;
+        for (Vehiculo vehiculo : vehiculos) {
+            totalPasajeros += vehiculo.getCantidadPasajeros();
+        }
+
+        return totalPasajeros;
+    }
+
+
     public  void buscarNumeroPlacaCarro() throws Exception{
 
         Scanner scanner = new Scanner(System.in);
