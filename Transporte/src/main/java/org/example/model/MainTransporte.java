@@ -8,25 +8,33 @@ public class MainTransporte {
      ArrayList<Propietario> propietarios ;
      ArrayList<VehiculoPrincipal> vehiculos;
      ArrayList<VehiculoTransporte> vehiculoTransportes;
-
      ArrayList<Usuario> usuarios;
 
     public MainTransporte(){
-
-         propietarios = new ArrayList<>();
-         vehiculos = new ArrayList<>();
-         vehiculoTransportes = new ArrayList<>();
-         usuarios = new ArrayList<>();
+        propietarios = new ArrayList<>();
+        vehiculos = new ArrayList<>();
+        vehiculoTransportes = new ArrayList<>();
+        usuarios = new ArrayList<>();
 
     }
 
     public void inicializarDatosDePrueba() {
-
         VehiculoPrincipal vehiculoPrincipal1 = new VehiculoPrincipal();
         vehiculoPrincipal1.setPlaca("tsy47f");
 
         Propietario propietario1 = new Propietario();
         propietario1.setNombre("jason");
+        propietario1.setEdad(25);
+
+        Propietario propietario2 = new Propietario();
+        propietario2.setNombre("jason");
+        propietario2.setEdad(99);
+
+        Propietario propietario3 = new Propietario();
+        propietario3.setNombre("jason");
+        propietario3.setEdad(10);
+
+
 
         System.out.println("El nombre del propietario es " + propietario1.getNombre() +
                 " y la placa de su carro es " + vehiculoPrincipal1.getPlaca());
@@ -43,17 +51,30 @@ public class MainTransporte {
         vehiculoTransporte3.setPlaca("ijh56g");
         vehiculoTransporte3.setMaximoPasajero(4);
 
+        Usuario usuario1 = new Usuario();
+        usuario1.setPeso(20);
+        usuario1.setNombre("natalia");
+        Usuario usuario2 = new Usuario();
+        usuario2.setPeso(50);
+        usuario2.setNombre("juan");
+        Usuario usuario3 = new Usuario();
+        usuario3.setPeso(100);
+        usuario3.setNombre("samuel");
+
         propietarios.add(propietario1);
+        propietarios.add(propietario2);
+        propietarios.add(propietario3);
         vehiculos.add(vehiculoPrincipal1);
         vehiculoTransportes.add(vehiculoTransporte1);
         vehiculoTransportes.add(vehiculoTransporte2);
         vehiculoTransportes.add(vehiculoTransporte3);
-
+        usuarios.add(usuario1);
+        usuarios.add(usuario2);
+        usuarios.add(usuario3);
 
     }
 
     public  void crearPropietario(){
-        
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el nombre del propietario: ");
@@ -69,7 +90,7 @@ public class MainTransporte {
         String telefono = scanner.nextLine();
 
         System.out.print("Ingrese la edad del propietario: ");
-        String edad = scanner.nextLine();
+        int edad = scanner.nextInt();
         
         // Crear el objeto Propietario
         Propietario propietario = new Propietario(nombre, identificacion, correo, telefono, edad);
@@ -81,7 +102,6 @@ public class MainTransporte {
     }
 
     public  void crearVehiculo(){
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el tamaño del vehiculo: ");
@@ -129,7 +149,6 @@ public class MainTransporte {
 
 
     public  void buscarNumeroPlacaCarro() throws Exception{
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el numero de placa que desea buscar: ");
@@ -162,7 +181,6 @@ public class MainTransporte {
     }
 
     public  void buscarCantidadPasajeroVehiculoTransporte() throws Exception{
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el numero de placa que desea buscar: ");
@@ -189,6 +207,24 @@ public class MainTransporte {
             throw new Exception("Este carro no existe");
 
         }
+    }
+
+    public void imprimirUsuariosPorPeso(double pesoMinimo) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getPeso() > pesoMinimo) {
+                System.out.println(usuario);
+            }
+        }
+    }
+
+    public void contarPropietariosMayores() {
+        int contador = 0;
+        for (Propietario propietario : propietarios) {
+            if (propietario.getEdad() > 40) {
+                contador++;
+            }
+        }
+        System.out.println("Número de propietarios mayores de 40 años: " + contador);
     }
 
 }

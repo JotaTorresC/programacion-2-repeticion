@@ -3,14 +3,11 @@ package org.example.model;
 public class Main{
 
     public static void main(String[] args) throws Exception {
-
         MainTransporte transporte = new MainTransporte();
 
         System.out.println("----------------");
         System.out.println("----------------");
         transporte.inicializarDatosDePrueba();
-
-        transporte.buscarCantidadPasajeroVehiculoTransporte();
 
         System.out.println("----------------");
         System.out.println("----------------");
@@ -26,6 +23,21 @@ public class Main{
         System.out.println("----------------");
         System.out.println("aki se muestra el propietario del carro ");
         transporte.buscarNumeroPlacaCarro();
+
+        System.out.println("----------------");
+        System.out.println("----------------");
+        System.out.println("aki se muestra el total de pasajeros de un carro buscando por placa");
+        transporte.buscarCantidadPasajeroVehiculoTransporte();
+
+        System.out.println("----------------");
+        System.out.println("----------------");
+        System.out.println("aki se muestra muestra que usuarios tienen mas del peso permitido");
+        transporte.imprimirUsuariosPorPeso(50);
+
+        System.out.println("----------------");
+        System.out.println("----------------");
+        System.out.println("aki se la cantidad de propietarios mayores de 40 años");
+        transporte.contarPropietariosMayores();
 
     }
 }

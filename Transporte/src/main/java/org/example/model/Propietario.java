@@ -7,14 +7,14 @@ public class Propietario {
     String identificacion;
     String correo;
     String telefono;
-    String edad;
+    int edad;
     ArrayList <VehiculoPrincipal> vehiculo;
 
     public Propietario() {
 
     }
 
-    public Propietario(String nombre, String identificacion, String correo, String telefono, String edad) {
+    public Propietario(String nombre, String identificacion, String correo, String telefono, int edad) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.correo = correo;
@@ -58,13 +58,11 @@ public class Propietario {
         this.vehiculo = vehiculo;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
+    public void setEdad(int edad) {this.edad = edad;}
 
     public ArrayList<VehiculoPrincipal> getVehiculo() {
         return vehiculo;
