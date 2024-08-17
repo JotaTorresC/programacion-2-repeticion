@@ -39,5 +39,10 @@ public class Main{
         System.out.println("aki se la cantidad de propietarios mayores de 40 años");
         transporte.contarPropietariosMayores();
 
+        System.out.println("----------------");
+        System.out.println("----------------");
+        System.out.println("aki se la cantidad total de pasajeros en el dia");
+        transporte.calcularTotalPasajeros();
+
     }
 }

@@ -227,4 +227,27 @@ public class MainTransporte {
         System.out.println("Número de propietarios mayores de 40 años: " + contador);
     }
 
+    public void calcularTotalPasajeros() {
+        VehiculoTransporte bus1 = new VehiculoTransporte();
+        bus1.setMaximoPasajero(30);
+
+        VehiculoTransporte bus2 = new VehiculoTransporte();
+        bus2.setMaximoPasajero(10);
+
+        vehiculos.add(bus1);
+        vehiculos.add(bus2);
+        int[] viajesPorVehiculo = {5,4};
+
+        int totalPasajeros = calcularTotalPasajeros(vehiculos, viajesPorVehiculo);
+        System.out.println("Total de pasajeros: " + totalPasajeros);
+    }
+
+    public int calcularTotalPasajeros(ArrayList<VehiculoTransporte> vehiculos, int[] viajesPorVehiculo) {
+        int totalPasajeros = 0;
+        for (int i = 0; i < vehiculos.size(); i++) {
+            totalPasajeros += vehiculos.get(i).getMaximoPasajero() * viajesPorVehiculo[i];
+        }
+        return totalPasajeros;
+    }
+
 }
