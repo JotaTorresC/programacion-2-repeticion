@@ -11,13 +11,13 @@ public class VehiculoPrincipal {
     String numeroChasis;
     ArrayList<Propietario> asociados;
 
+
     public VehiculoPrincipal() {
 
     }
 
     public VehiculoPrincipal(String tamanoVehiculo, String placa, String modelo, String marca,
                              String color, String numeroChasis) {
-
         this.numeroChasis = numeroChasis;
         this.tamanoVehiculo = tamanoVehiculo;
         this.placa = placa;

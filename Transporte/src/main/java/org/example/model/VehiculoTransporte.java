@@ -6,7 +6,8 @@ public class VehiculoTransporte extends VehiculoPrincipal{
 
     private int maximoPasajero;
 
-    ArrayList<Usuario> usuarios;
+
+
 
     public VehiculoTransporte(){
 
@@ -27,11 +28,4 @@ public class VehiculoTransporte extends VehiculoPrincipal{
         this.maximoPasajero = maximoPasajero;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(ArrayList<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
 }

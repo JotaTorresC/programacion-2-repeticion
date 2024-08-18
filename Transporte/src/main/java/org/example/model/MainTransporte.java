@@ -66,8 +66,8 @@ public class MainTransporte {
         propietarios.add(propietario3);
         vehiculos.add(vehiculoPrincipal1);
         vehiculoTransportes.add(vehiculoTransporte1);
-        vehiculoTransportes.add(vehiculoTransporte2);
-        vehiculoTransportes.add(vehiculoTransporte3);
+        vehiculos.add(vehiculoTransporte2);
+        vehiculos.add(vehiculoTransporte3);
         usuarios.add(usuario1);
         usuarios.add(usuario2);
         usuarios.add(usuario3);
@@ -129,25 +129,6 @@ public class MainTransporte {
         System.out.println("\n" + vehiculo);
     }
 
-    /*public int calcularTotalPasajeros() {
-        Scanner scanner = new Scanner(System.in);
-
-        // Solicitar la cantidad de pasajeros y agregarla al vehículo.
-        System.out.print("Ingrese la cantidad de pasajeros del viaje: ");
-        int cantidadPasajeros = scanner.nextInt();
-
-        Vehiculo vehiculoActual = vehiculos.get(vehiculos.size() - 1);
-        vehiculoActual.setCantidadPasajeros(cantidadPasajeros);
-
-        int totalPasajeros = 0;
-        for (Vehiculo vehiculo : vehiculos) {
-            totalPasajeros += vehiculo.getCantidadPasajeros();
-        }
-
-        return totalPasajeros;
-    }*/
-
-
     public  void buscarNumeroPlacaCarro() throws Exception{
         Scanner scanner = new Scanner(System.in);
 
@@ -160,7 +141,7 @@ public class MainTransporte {
             for (VehiculoPrincipal vehiculo : vehiculos){
                 if (vehiculo.getPlaca().equals(numeroPlaca)){
 
-                    System.out.print("el dueño del carro es " + propietario.getNombre());
+                    System.out.print("el dueño del carro es " + propietario.getNombre() + "\n");
                     carroEncontrado = true;
                     break;
                 }
@@ -227,27 +208,13 @@ public class MainTransporte {
         System.out.println("Número de propietarios mayores de 40 años: " + contador);
     }
 
-    public void calcularTotalPasajeros() {
-        VehiculoTransporte bus1 = new VehiculoTransporte();
-        bus1.setMaximoPasajero(30);
+    public void imprimirPasajerosMovilizados(String placa){
+        for (VehiculoTransporte vehiculoTransporte : vehiculoTransportes) {
+            if (vehiculoTransporte.getPlaca().equals(placa)) {
+                System.out.print("la cantida de pasajeros en el dia fue: " + vehiculoTransporte.getMaximoPasajero());
 
-        VehiculoTransporte bus2 = new VehiculoTransporte();
-        bus2.setMaximoPasajero(10);
-
-        vehiculos.add(bus1);
-        vehiculos.add(bus2);
-        int[] viajesPorVehiculo = {5,4};
-
-        int totalPasajeros = calcularTotalPasajeros(vehiculos, viajesPorVehiculo);
-        System.out.println("Total de pasajeros: " + totalPasajeros);
-    }
-
-    public int calcularTotalPasajeros(ArrayList<VehiculoTransporte> vehiculos, int[] viajesPorVehiculo) {
-        int totalPasajeros = 0;
-        for (int i = 0; i < vehiculos.size(); i++) {
-            totalPasajeros += vehiculos.get(i).getMaximoPasajero() * viajesPorVehiculo[i];
+            }
         }
-        return totalPasajeros;
     }
 
 }

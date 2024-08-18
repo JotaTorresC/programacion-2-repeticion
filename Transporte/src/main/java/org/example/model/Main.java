@@ -8,7 +8,7 @@ public class Main{
         System.out.println("----------------");
         System.out.println("----------------");
         transporte.inicializarDatosDePrueba();
-
+        
         System.out.println("----------------");
         System.out.println("----------------");
         System.out.println("aki se muestra los datos del propietario");
@@ -42,7 +42,7 @@ public class Main{
         System.out.println("----------------");
         System.out.println("----------------");
         System.out.println("aki se la cantidad total de pasajeros en el dia");
-        transporte.calcularTotalPasajeros();
+        transporte.imprimirPasajerosMovilizados("jpt79g");
 
     }
 }
