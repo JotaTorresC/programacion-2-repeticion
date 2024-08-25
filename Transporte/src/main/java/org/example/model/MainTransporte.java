@@ -134,7 +134,6 @@ public class MainTransporte {
 
         System.out.print("Ingrese el numero de placa que desea buscar: ");
         String numeroPlaca = scanner.nextLine();
-
         boolean carroEncontrado = false;
 
         for (Propietario propietario : propietarios) {
